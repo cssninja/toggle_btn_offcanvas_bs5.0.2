@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>toggle_btn_offcanvas_bs5.0.2</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <!-- bs5.0.2 iso .. thanks to: https://github.com/franky920920/bootstrap-5-isolated -->
+    <link rel="stylesheet" href="https://pionezero.com/bs5.0.2_iso/bootstrap-isolated.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+
+    <div class="bs5">
+        <div class="container min-vh-100 py-2">
+
+            <div class="row">
+                <div class="col">
+                    <h2 class="font-weight-light">Bootstrap 5 Sidebar</h2>
+                    <p> This is a Bootstrap 5 off-canvas menu example! </p>
+                    <div class="d-flex justify-content-end form-check form-switch form-control-lg">
+                        <input class="form-check-input" type="checkbox" id="toggleSidebar">
+                        <label class="form-check-label ms-1" for="toggleSidebar">Toggle Offcanvas</label>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://icons.getbootstrap.com/assets/img/icons-hero.png" />
+                    </div>
+                    <div class="offcanvas offcanvas-top bg-light" tabindex="-1" id="offcanvasExample">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title">Offcanvas</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div> Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc. </div>
+                            <div class="dropdown mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"> Menu </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+  <script>
+    var toggle = document.getElementById("toggleSidebar")
+var offcanvas_el = document.getElementById("offcanvasExample")
+var offcanvas = new bootstrap.Offcanvas(offcanvas_el, {backdrop: false})
+
+toggle.addEventListener("change", function(){
+    toggle.checked ? offcanvas.show() : offcanvas.hide() 
+})
+
+// handle case when sidebar is closed internally using `X`
+offcanvas_el.addEventListener('hide.bs.offcanvas', function () {
+    toggle.checked = false
+})
+</script>
+  </body>
+</html>
